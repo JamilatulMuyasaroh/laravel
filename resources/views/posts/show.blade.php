@@ -1,8 +1,15 @@
 @extends('posts.layouts.app')
 
 @section('container')
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-4">Judul Berita: {{ $post->judul}}</h1>
-    <p class="mb-4 text-2xl font-semibold text-gray-500 dark:text-gray-400">Berita: {{ $post->berita }}</p>
-    <p class="text-lg text-gray-600 dark:text-gray-300">Tahun: {{ $post->tahun}}</p>
-    <p class="text-lg text-gray-600 dark:text-gray-300">Penulis: {{ $post->penulis }}</p>
+    <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-extrabold leading-none text-gray-900 mb-4">{{ $post->judul }}</h1>
+        <p class="text-xl font-semibold text-gray-600 mb-4">Berita: {{ $post->berita }}</p>
+        <p class="text-lg text-gray-600 mb-2">Tahun: {{ $post->tahun }}</p>
+        <p class="text-lg text-gray-600 mb-4">Penulis: {{ $post->penulis }}</p>
+        @if($post->gambar)
+            <div class="mt-4">
+                <img src="{{ $post->gambar }}" alt="{{ $post->judul }}" class="img-thumbnail" width="500">
+            </div>
+        @endif
+    </div>
 @endsection

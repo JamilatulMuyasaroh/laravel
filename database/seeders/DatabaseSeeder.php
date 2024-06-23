@@ -15,9 +15,17 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('posts')->truncate();
         
+        // Array of random image URLs
+        $imageUrls = [
+            'https://example.com/image1.jpg',
+            'https://example.com/image2.jpg',
+            'https://example.com/image3.jpg',
+            // Add more image URLs as needed
+        ];
+        
         DB::table('posts')->insert([
             'judul' => $this->generateRandomText(rand(3, 15), rand(3, 15)), 
-            'berita' => $this->generateRandomText(rand(120, 250), rand(3, 10)), 
+            'berita' => $this->generateRandomText(rand(120, 250), rand(3, 10)) . '<img src="' . $imageUrls[array_rand($imageUrls)] . '">', 
             'tahun' => rand(2020, 2023), 
             'penulis' => $this->generateRandomText(rand(3, 6), rand(4, 8)), 
         ]);

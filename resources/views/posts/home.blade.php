@@ -6,12 +6,20 @@
 
         <div class="grid grid-cols-1 gap-8">
             @foreach ($posts as $post)
-                <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-8 max-w-7xl mx-auto bg-white dark:bg-gray-800 shadow-xl">
-                    <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">{{ $post->judul }}</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-6">{{ $post->berita }}</p>
-                    <div class="mt-8 flex justify-between items-center">
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Tahun: {{ $post->tahun }}</p>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Penulis: {{ $post->penulis }}</p>
+                <div class="border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-xl">
+                    @if($post->gambar)
+                        <div class="relative">
+                            <img src="{{ $post->gambar }}" alt="{{ $post->judul }}" class="object-cover w-full h-72 md:h-96 rounded-t-lg">
+                        </div>
+                    @endif
+
+                    <div class="p-8">
+                        <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200 mb-4">{{ $post->judul }}</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">{{ $post->berita }}</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <p class="text-lg text-gray-600 dark:text-gray-400">Tahun: {{ $post->tahun }}</p>
+                            <p class="text-lg text-gray-600 dark:text-gray-400">Penulis: {{ $post->penulis }}</p>
+                        </div>
                     </div>
                 </div>
             @endforeach

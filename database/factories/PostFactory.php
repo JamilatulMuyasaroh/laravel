@@ -22,9 +22,17 @@ class PostFactory extends Factory
     {
         $this->faker = \Faker\Factory::create('id_ID');
         
+        // Generate a random image URL
+        $imageUrl = $this->faker->randomElement([
+            'https://example.com/image1.jpg',
+            'https://example.com/image2.jpg',
+            'https://example.com/image3.jpg',
+            // Add more image URLs as needed
+        ]);
+        
         return [
             'judul' => $this->faker->sentence(rand(3, 15)), 
-            'berita' => $this->faker->text(rand(400, 1500)), 
+            'berita' => $this->faker->text(rand(400, 1500)) . '<br><img src="' . $imageUrl . '">', 
             'tahun' => $this->faker->numberBetween(2020, 2023), 
             'penulis' => $this->faker->name, 
         ];

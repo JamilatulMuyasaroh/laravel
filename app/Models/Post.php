@@ -9,5 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['judul', 'berita', 'tahun', 'penulis'];
+    protected $fillable = [
+        'judul', 
+        'berita', 
+        'tahun', 
+        'penulis', 
+        'gambar'
+    ];
 }

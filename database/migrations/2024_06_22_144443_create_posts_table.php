@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
                 $table->text('berita'); 
                 $table->year('tahun');
                 $table->string('penulis');
+                $table->string('gambar');
                 $table->timestamps();
             });
         }
